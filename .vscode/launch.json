@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/run-framework.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": [""]
+            "args": ["-d"]
         }
     ]
 }
