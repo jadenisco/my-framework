@@ -1,0 +1,22 @@
+{
+    "cSpell.words": [
+        "BFDAPI",
+        "coredump",
+        "cpus",
+        "esac",
+        "gcov",
+        "gdbserver",
+        "mkdir",
+        "papi",
+        "pcap",
+        "pcaps",
+        "piptools",
+        "psutil",
+        "recompiles",
+        "scapy",
+        "setsid",
+        "setuptools",
+        "unittests",
+        "venv"
+    ]
+}

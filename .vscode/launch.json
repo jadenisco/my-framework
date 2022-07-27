@@ -8,10 +8,10 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/run-framework.py",
+            "program": "${workspaceFolder}/run_tests.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["-d"]
+            "args": ["--sanity", "--debug-framework"]
         }
     ]
 }
