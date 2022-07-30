@@ -6,14 +6,20 @@ import sys
 import os
 from framework import VppDiedError, VppTestCase, KeepAliveReporter
 
-
 class SanityTestCase(VppTestCase):
     """Sanity test case - verify whether VPP is able to start"""
     print("{}({})".format(__name__.strip('_'), locals()))
 
     cpus = [0]
 
-    # don't ask to debug SanityTestCase
+    def __init__(self):
+        print("{}({})".format(__name__.strip('_'), locals()))
+
+    def tearDownClass():
+        print("{}({})".format(__name__.strip('_'), locals()))
+    
+
+# don't ask to debug SanityTestCase
  #   @classmethod
  #   def wait_for_enter(cls, pid=0):
  #       pass
@@ -25,7 +31,6 @@ class SanityTestCase(VppTestCase):
 #        except AttributeError:
 #            pass
 
-
 def main():
     print("{}({})".format(__name__.strip('_'), locals()))
 
@@ -34,17 +39,18 @@ def main():
     x, y = Pipe()
     reporter = KeepAliveReporter()
     reporter.pipe = y
-#    try:
-#        tc.setUpClass()
-#    except VppDiedError:
-#        rc = -1
-#    else:
-#        try:
-#            tc.tearDownClass()
-#        except Exception:
-#            rc = -1
-#    x.close()
-#    y.close()
+
+    try:
+        tc.setUpClass()
+    except VppDiedError:
+        rc = -1
+    else:
+        try:
+            tc.tearDownClass()
+        except Exception:
+            rc = -1
+    x.close()
+    y.close()
 
     if rc == 0:
         print("Sanity test case passed.")
